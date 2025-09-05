@@ -65,7 +65,7 @@ GOOGLE_API_KEY=your_google_api_key
 **Terminal 1 - Backend:**
 ```bash
 cd backend
-uvicorn main:app --reload --host localhost --port 8000
+uvicorn main:app --reload --host 0.0.0.0 --port 80
 ```
 
 **Terminal 2 - Frontend:**
@@ -74,7 +74,7 @@ cd frontend
 npm start
 ```
 
-➡️ Truy cập: http://localhost:3000
+➡️ Truy cập: http://localhost:80
 - **Technology**: FastAPI, Python 3.12
 - **Features**:
   - Multi-provider AI integration (Groq, OpenAI, Gemini)
