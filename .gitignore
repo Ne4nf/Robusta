@@ -1,0 +1,146 @@
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# React build
+frontend/build/
+frontend/dist/
+
+# Logs
+*.log
+logs/
+chat_logs.jsonl
+*.csv
+
+# IDE
+.vscode/settings.json
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Auto-generated files (legacy cleanup)
+*_enhanced.py
+*_improved_*.py
+*_clean.py
+debug_extraction.py
+final_production_commands.ps1
+individual_course_processing.py
+production_commands.ps1
+production_enhanced_upload.py
+topic_vectordb_clean.py
+run_improved_reset.py
+setup_topic_vectordb.py
+stable_topic_upload.py
+streamlit_enhanced.py
+test_improved_processing.py
+cleanup_vectordb.py
+
+# Docker (removed)
+Dockerfile*
+docker-compose*.yml
+
+# Deployment configs (removed)
+*DEPLOYMENT.md
+NGROK_DEPLOYMENT.md
+PORT_80_DEPLOYMENT.md
+AUDIT_SUMMARY.md
+QUICK_START.md
+
+# Streamlit (removed)
+.streamlit/
+*streamlit*.py
+
+# Batch scripts (legacy)
+start_server.*
+setup.*
+*production*.ps1
+*_reset.py
+*_upload.py
+setup_*.py
+test_*.py
+
+# Virtual Environment
+.venv/
+venv/
+ENV/
+env/
+.env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+logs/
+*.csv
+*.jsonl
+
+# Data files (chứa thông tin nhạy cảm)
+chat_logs.jsonl
+robusta_chat_logs_*.csv
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# pytest
+.pytest_cache/
+.coverage
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json

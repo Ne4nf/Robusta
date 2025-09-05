@@ -1,0 +1,169 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  * {
+    @apply border-gray-200 dark:border-gray-700;
+  }
+  body {
+    @apply bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 font-sans;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .scrollbar-thin {
+    scrollbar-width: thin;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-track {
+    @apply bg-gray-100 dark:bg-gray-800;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 dark:bg-gray-600 rounded-full;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-400 dark:bg-gray-500;
+  }
+
+  .glass-effect {
+    @apply bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border border-gray-200 dark:border-gray-700;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent;
+  }
+
+  .chat-message {
+    @apply p-4 rounded-lg mb-4 max-w-4xl animate-fade-in;
+  }
+
+  .chat-message.user {
+    @apply bg-blue-50 dark:bg-blue-900/20 ml-auto border-l-4 border-l-blue-500;
+  }
+
+  .chat-message.assistant {
+    @apply bg-gray-50 dark:bg-gray-800/50 mr-auto border-l-4 border-l-green-500;
+  }
+
+  .typing-indicator {
+    @apply flex items-center space-x-1;
+  }
+
+  .typing-dot {
+    @apply w-2 h-2 bg-gray-400 rounded-full animate-pulse;
+    animation-delay: var(--delay);
+  }
+}
+
+/* Custom animations */
+@keyframes messageSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.message-enter {
+  animation: messageSlideIn 0.3s ease-out;
+}
+
+/* Syntax highlighting theme adjustments */
+.hljs {
+  @apply bg-gray-900 dark:bg-gray-950 text-gray-100 p-4 rounded-lg overflow-x-auto;
+}
+
+/* Loading spinner */
+.spinner {
+  @apply inline-block w-4 h-4 border-2 border-gray-300 border-t-blue-500 rounded-full animate-spin;
+}
+
+/* Sidebar transitions */
+.sidebar-enter {
+  transform: translateX(-100%);
+}
+
+.sidebar-enter-active {
+  transform: translateX(0);
+  transition: transform 300ms ease-out;
+}
+
+.sidebar-exit {
+  transform: translateX(0);
+}
+
+.sidebar-exit-active {
+  transform: translateX(-100%);
+  transition: transform 300ms ease-in;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+  .chat-message {
+    @apply max-w-none mx-2;
+  }
+  
+  .chat-message.user {
+    @apply ml-2;
+  }
+  
+  .chat-message.assistant {
+    @apply mr-2;
+  }
+}
+
+/* Focus states for accessibility */
+.focus-outline {
+  @apply focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900;
+}
+
+/* Code block improvements */
+pre code {
+  @apply block overflow-x-auto p-0;
+}
+
+.code-header {
+  @apply flex items-center justify-between bg-gray-800 text-gray-200 px-4 py-2 text-sm rounded-t-lg;
+}
+
+.copy-button {
+  @apply text-gray-400 hover:text-white transition-colors duration-200 focus-outline;
+}
+
+/* Message status indicators */
+.message-status {
+  @apply text-xs text-gray-400 mt-1 flex items-center gap-1;
+}
+
+.status-sent {
+  @apply text-blue-400;
+}
+
+.status-delivered {
+  @apply text-green-400;
+}
+
+.status-error {
+  @apply text-red-400;
+}
