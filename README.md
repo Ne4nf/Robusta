@@ -62,19 +62,33 @@ GOOGLE_API_KEY=your_google_api_key
 
 ### 3. Khởi chạy services
 
-**Terminal 1 - Backend:**
+**Development Mode (Port 8000):**
 ```bash
-cd backend
-uvicorn main:app --reload --host 0.0.0.0 --port 80
-```
+# Sử dụng script development
+start_dev.bat
 
-**Terminal 2 - Frontend:**
-```bash
+# Hoặc manual:
+# Terminal 1 - Backend
+cd backend
+python -m uvicorn main:app --reload --host 0.0.0.0 --port 8000
+
+# Terminal 2 - Frontend
 cd frontend
 npm start
 ```
 
-➡️ Truy cập: http://localhost:80
+**Production Mode (Port 80):**
+```bash
+# Sử dụng script production (yêu cầu admin rights)
+start.bat
+
+# Hoặc manual:
+cd backend
+python main.py  # Tự động chạy port 80
+```
+
+➡️ **Development**: http://localhost:3000 (proxy to backend:8000)
+➡️ **Production**: http://localhost:80
 - **Technology**: FastAPI, Python 3.12
 - **Features**:
   - Multi-provider AI integration (Groq, OpenAI, Gemini)
@@ -85,7 +99,7 @@ npm start
   - Conversation memory management
 
 ### Chi tiết:
-1. **Input**: Người dùng nhập câu hỏi trên giao diện web Streamlit
+1. **Input**: Người dùng nhập câu hỏi trên giao diện React frontend
 2. **Intent Classification**: AI phân loại ý định (tư vấn khóa học, hỏi chính sách, hỏi ưu đãi, lịch học...)
 3. **Data Retrieval**: Tìm kiếm thông tin liên quan trong VectorDB hoặc template có sẵn
 4. **AI Processing**: Model AI (GPT OSS 120B, Groq, Gemini) sinh câu trả lời phù hợp
@@ -95,7 +109,11 @@ npm start
 ## Chi tiết từng file/module
 
 ###  Giao diện & Điều khiển
-**`src/streamlit_chat.py`** - Giao diện web chính
+**`frontend/`** - React frontend với UI hiện đại (Gemini-like design)
+- **`src/components/ChatInterface.js`** - Giao diện chat chính
+- **`src/components/Sidebar.js`** - Sidebar navigation
+- **`src/components/UploadInterface.js`** - Upload course files
+- **`src/components/Settings.js`** - Settings panel
 
 
 ###  Xử lý AI & Logic 
@@ -152,9 +170,10 @@ npm start
 
 
 ## Technical Stack 
+- **Frontend**: React 18, Tailwind CSS, Framer Motion
+- **Backend**: FastAPI, Python 3.12
 - **AI Models**: OpenAI GPT OSS 120B, Groq, Google Gemini
 - **Vector Database**: Qdrant Cloud
-- **Web Framework**: Streamlit
 - **Document Processing**: PyPDF, LangChain
 - **Logging**: Google Sheets API
 - **Embedding**: Google Text-Embedding-004

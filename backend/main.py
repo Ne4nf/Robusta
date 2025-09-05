@@ -247,5 +247,11 @@ if os.getenv("ENVIRONMENT") == "production":
 
 if __name__ == "__main__":
     import uvicorn
+    # Development: port 8000, Production: port 80
     port = int(os.getenv("PORT", 80))
-    uvicorn.run(app, host="0.0.0.0", port=port)
+    host = os.getenv("HOST", "0.0.0.0")
+    
+    print(f"🚀 Starting ROBUSTA Bot API server on {host}:{port}")
+    print(f"🌍 Environment: {'Production' if port == 80 else 'Development'}")
+    
+    uvicorn.run(app, host=host, port=port)

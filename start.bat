@@ -46,7 +46,7 @@ echo 📍 Frontend: http://localhost:3000
 
 echo.
 echo ⚡ Starting Backend (FastAPI)...
-start cmd /k "cd backend && call ..\.venv\Scripts\activate.bat && uvicorn main:app --reload --host localhost --port 80"
+start cmd /k "cd backend && call ..\.venv\Scripts\activate.bat && python main.py"
 
 timeout /t 3 /nobreak >nul
 
